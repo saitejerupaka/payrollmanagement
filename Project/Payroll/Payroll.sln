@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Payroll", "..\..\..\Payroll\Project\Payroll", "{44450870-BC63-403F-A103-2D27D32F5205}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Payroll"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Payroll\Project\Payroll\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Payroll\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Payroll"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\Payroll\Project\Payroll\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Payroll\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52418"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44450870-BC63-403F-A103-2D27D32F5205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44450870-BC63-403F-A103-2D27D32F5205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
