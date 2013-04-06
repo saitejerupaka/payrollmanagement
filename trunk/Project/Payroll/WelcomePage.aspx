@@ -88,6 +88,8 @@
                     &nbsp;</td>
             </tr>
         </table>
+    <asp:Button ID="Logoutbtn" runat="server" onclick="Logoutbtn_Click" 
+        Text="Logout" />
     </form>
 </body>
 </html>
