@@ -33,7 +33,7 @@ public partial class EmployeeRegisteration : System.Web.UI.Page
                 command.Parameters.AddWithValue("@Password", Passwordtxt.Text);
                 command.Parameters.AddWithValue("@Address", Addresstxt.Text);
                 command.Parameters.AddWithValue("@DOB", DateOfBirthtxt.Text);
-                command.Parameters.AddWithValue("@joinDate", JoiningDatetxt.Text);
+                command.Parameters.AddWithValue("@JoinDate", JoiningDatetxt.Text);
                 int numberofrowsaffected = command.ExecuteNonQuery();
                 if (numberofrowsaffected > 0)
                 {

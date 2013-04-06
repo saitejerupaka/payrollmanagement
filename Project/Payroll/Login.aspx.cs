@@ -19,9 +19,9 @@ public partial class Login : System.Web.UI.Page
         {
            connection.Open();
 
-           using(SqlCommand command=new SqlCommand("select UserName, Pswd from tbl_EmployeeDetail",connection))
+           using(SqlCommand command=new SqlCommand("select FirstName, UserName, Pswd from tbl_EmployeeDetail",connection))
            {
-               Session["FirstName"] = UserNametxt.Text;
+               
                SqlDataAdapter adapter = new SqlDataAdapter(command);
                DataSet dataset = new DataSet();
                adapter.Fill(dataset, "tbl_EmployeeDetail");
@@ -31,7 +31,9 @@ public partial class Login : System.Web.UI.Page
                            Passwordtxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["Pswd"].ToString())
                        {
                            LoginMessagelbl.Text = "Login Success";
-                           break;
+                           Session["username"] = UserNametxt.Text;
+                           Session["firstname"] = dataset.Tables["tbl_EmployeeDetail"].Rows[i]["FirstName"].ToString();
+                           Response.Redirect("WelcomePage.aspx");
                        }
                        else
                        {
@@ -39,7 +41,6 @@ public partial class Login : System.Web.UI.Page
                        }
                    }
                    connection.Close();
-                   Response.Redirect("WelcomePage.aspx");
                }                   
                                        
            }
