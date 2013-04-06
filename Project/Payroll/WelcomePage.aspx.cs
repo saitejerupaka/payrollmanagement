@@ -11,11 +11,15 @@ public partial class WelcomePage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string username = (string)(Session["username"]);
-        string firstname = (string)(Session["firstname"]);
-        GuestNamelbl.Text = firstname;
-        UserProfileFromDatabase(username);
-       
+        if (Session["username"] != null)
+        {
+            string username = (string)(Session["username"]);
+            string firstname = (string)(Session["firstname"]);
+            GuestNamelbl.Text = firstname;
+            UserProfileFromDatabase(username);
+        }
+        else
+            Response.Redirect("Login.aspx");
     }
 
     protected void UserProfileFromDatabase(string username)
@@ -35,10 +39,14 @@ public partial class WelcomePage : System.Web.UI.Page
                 {
                     Profiletbl.Rows[i].Cells[1].InnerHtml = dataset.Tables["tbl_EmployeeDetail"].Rows[0][column].ToString();
                 }
+                Session["username"] = null;
             }
             connection.Close();
-  
         }
-
+    }
+    protected void Logoutbtn_Click(object sender, EventArgs e)
+    {
+        Session["username"] = null;
+        Response.Redirect("Login.aspx");
     }
 }
