@@ -37,7 +37,7 @@ public partial class Login : System.Web.UI.Page
                        }
                        else
                        {
-                           LoginMessagelbl.Text = "Login Failed";
+                           LoginMessagelbl.Text = "Invalid User name or Password";
                        }
                    }
                    connection.Close();
