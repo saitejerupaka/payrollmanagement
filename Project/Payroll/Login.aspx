@@ -1,49 +1,33 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="Login.aspx.cs" Inherits="Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href="Table.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            width: 149px;
-        }
         .style4
         {
-            width: 149px;
-            height: 28px;
+            width: 168px;
         }
-        .style9
+        .style5
         {
-            width: 169px;
-            height: 28px;
+            width: 259px;
         }
-        .style10
+        .style6
         {
-            width: 169px;
+            width: 159px;
+            height: 75px;
         }
-        .style11
+        .style7
         {
-            width: 142px;
-            height: 28px;
+            height: 75px;
         }
-        .style12
+        .style8
         {
-            width: 142px;
+            width: 259px;
+            height: 75px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <table class="style1">
         <tr>
             <td class="style4">
@@ -52,7 +36,7 @@
             <td class="style11">
                 <asp:TextBox ID="UserNametxt" runat="server"></asp:TextBox>
             </td>
-            <td class="style9">
+            <td class="style5">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -60,24 +44,21 @@
                 <asp:Label ID="Passwordlbl" runat="server" Text="Password:"></asp:Label>
             </td>
             <td class="style12">
-                <asp:TextBox ID="Passwordtxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="Passwordtxt" runat="server" TextMode="Password"></asp:TextBox>
             </td>
-            <td class="style10">
+            <td class="style5">
                 <asp:Label ID="LoginMessagelbl" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="style2">
-                <asp:Label ID="UserNameOrPasswordErrorlbl" runat="server"></asp:Label>
-            </td>
-            <td class="style12">
+            <td class="style6">
+                </td>
+            <td class="style7">
                 <asp:Button ID="Loginbtn" runat="server" onclick="Loginbtn_Click" 
                     Text="Login" />
             </td>
-            <td class="style10">
-                &nbsp;</td>
+            <td class="style8">
+                </td>
         </tr>
     </table>
-    </form>
-</body>
-</html>
+</asp:Content>
