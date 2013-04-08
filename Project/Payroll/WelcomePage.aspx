@@ -14,14 +14,12 @@
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
-                <td>
+                <td rowspan="8">
                     &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
                     FirstName:</td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -30,14 +28,10 @@
                     LastName:</td>
                 <td>
                     &nbsp;</td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
                     Email ID:</td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -46,14 +40,10 @@
                     Phone Number:</td>
                 <td>
                     &nbsp;</td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
                     Address:</td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
@@ -62,14 +52,10 @@
                     Date Of Birth:</td>
                 <td>
                     &nbsp;</td>
-                <td>
-                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="style2">
                     Joining Date:</td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

@@ -28,7 +28,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <table class="style1">
+    <table class="style1" align="center">
         <tr>
             <td class="style4">
                 <asp:Label ID="UserNamelbl" runat="server" Text="User Name:"></asp:Label>
@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td class="style6">
-                </td>
+                &nbsp;</td>
             <td class="style7">
                 <asp:Button ID="Loginbtn" runat="server" onclick="Loginbtn_Click" 
                     Text="Login" />
