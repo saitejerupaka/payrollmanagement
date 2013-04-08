@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+            height: 211px;
+        }
+        .style2
+        {
+            width: 159px;
+        }
+        .style3
+        {
+            width: 529px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="height: 211px">
+        <table class="style1">
+            <tr>
+                <td bgcolor="#3366CC" colspan="2">
+                    <strong>Payroll System</strong></td>
+            </tr>
+            <tr>
+                <td bgcolor="#FFFF66" class="style2">
+                    <asp:HyperLink ID="Homehyperlink" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="Loginhyperlink" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
+                    <br />
+                    <asp:HyperLink ID="Registrationhyperlink" runat="server" 
+                        NavigateUrl="~/EmployeeRegisteration.aspx">Registration</asp:HyperLink>
+                </td>
+                <td class="style3">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#FFFF66" colspan="2">
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
