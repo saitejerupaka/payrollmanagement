@@ -12,36 +12,50 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+
     protected void Loginbtn_Click(object sender, EventArgs e)
     {
         string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Payroll"].ConnectionString;
-        using(SqlConnection connection=new SqlConnection(connectionString))
-        {
-           connection.Open();
-
-           using(SqlCommand command=new SqlCommand("select FirstName, UserName, Pswd from tbl_EmployeeDetail",connection))
-           {
-               
-               SqlDataAdapter adapter = new SqlDataAdapter(command);
-               DataSet dataset = new DataSet();
-               adapter.Fill(dataset, "tbl_EmployeeDetail");
-                   for (int i = 0; i < dataset.Tables["tbl_EmployeeDetail"].Rows.Count; i++)
-                   {
-                       if (UserNametxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["UserName"].ToString() &
-                           Passwordtxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["Pswd"].ToString())
-                       {
-                           LoginMessagelbl.Text = "Login Success";
-                           Session["username"] = UserNametxt.Text;
-                           Session["firstname"] = dataset.Tables["tbl_EmployeeDetail"].Rows[i]["FirstName"].ToString();
-                           Response.Redirect("WelcomePage.aspx");
-                       }
-                       else
-                       {
-                           LoginMessagelbl.Text = "Invalid User name or Password";
-                       }
-                   }
-                   connection.Close();
-               }                                         
-           }
+        UsingSqlConnection(connectionString);
         }
+
+    private void UsingSqlConnection(string connectionString)
+    {
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            UsingSqlCommand(connection);
+        }
+    }
+
+    private void UsingSqlCommand(SqlConnection connection)
+    {
+        using (SqlCommand command = new SqlCommand("select FirstName, UserName, Pswd from tbl_EmployeeDetail", connection))
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataSet dataset = new DataSet();
+            adapter.Fill(dataset, "tbl_EmployeeDetail");
+            VerifyingLoginDetails(dataset);
+            connection.Close();
+        }
+    }
+
+    private void VerifyingLoginDetails(DataSet dataset)
+    {
+        for (int i = 0; i < dataset.Tables["tbl_EmployeeDetail"].Rows.Count; i++)
+        {
+            if (UserNametxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["UserName"].ToString() &
+                Passwordtxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["Pswd"].ToString())
+            {
+                LoginMessagelbl.Text = "Login Success";
+                Session["username"] = UserNametxt.Text;
+                Session["firstname"] = dataset.Tables["tbl_EmployeeDetail"].Rows[i]["FirstName"].ToString();
+                Response.Redirect("WelcomePage.aspx");
+            }
+            else
+            {
+                LoginMessagelbl.Text = "Invalid User name or Password";
+            }
+        }
+    }
     }
