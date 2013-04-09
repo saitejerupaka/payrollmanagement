@@ -25,16 +25,24 @@ public partial class Login : System.Web.UI.Page
         {
             connection.Open();
             UsingSqlCommand(connection);
+            connection.Close();
         }
     }
 
     private void UsingSqlCommand(SqlConnection connection)
     {
-        using (SqlCommand command = new SqlCommand("select FirstName, UserName, Pswd from tbl_EmployeeDetail", connection))
+        using (SqlCommand command = new SqlCommand())
         {
+            command.CommandType = CommandType.StoredProcedure;
+            command.CommandText = "usp_ValidateUser";
+            command.Connection = connection;
+            command.Parameters.AddWithValue("@username", UserNametxt.Text);
+            command.Parameters.AddWithValue("@password", Passwordtxt.Text);
+            command.ExecuteNonQuery();
+
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataSet dataset = new DataSet();
-            adapter.Fill(dataset, "tbl_EmployeeDetail");
+            adapter.Fill(dataset);
             VerifyingLoginDetails(dataset);
             connection.Close();
         }
@@ -42,20 +50,17 @@ public partial class Login : System.Web.UI.Page
 
     private void VerifyingLoginDetails(DataSet dataset)
     {
-        for (int i = 0; i < dataset.Tables["tbl_EmployeeDetail"].Rows.Count; i++)
+        if( (0 < dataset.Tables[0].Rows.Count) &&  (dataset!=null) )
         {
-            if (UserNametxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["UserName"].ToString() &
-                Passwordtxt.Text == dataset.Tables["tbl_EmployeeDetail"].Rows[i]["Pswd"].ToString())
-            {
                 LoginMessagelbl.Text = "Login Success";
                 Session["username"] = UserNametxt.Text;
-                Session["firstname"] = dataset.Tables["tbl_EmployeeDetail"].Rows[i]["FirstName"].ToString();
+                Session["firstname"] = dataset.Tables[0].Rows[0]["FirstName"].ToString();
                 Response.Redirect("WelcomePage.aspx");
-            }
-            else
-            {
-                LoginMessagelbl.Text = "Invalid User name or Password";
-            }
         }
+        else
+        {
+              LoginMessagelbl.Text = "Invalid User name or Password";
+        }
+       
     }
     }
